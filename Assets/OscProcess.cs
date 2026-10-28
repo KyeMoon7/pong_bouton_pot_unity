@@ -29,7 +29,6 @@ public class OscProcess : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void TraiterMessagePot(OSCMessage message)
@@ -50,6 +49,9 @@ public class OscProcess : MonoBehaviour
             Debug.Log("Le premier argument du message " + message.Address + "n’est pas un entier");
             return; // Quitte la fonction sans exécuter la suite
         }
+
+   
+
         int valeur = message.Values[0].IntValue;
 
         // TRAITER LA VALEUR ICI !
@@ -57,6 +59,8 @@ public class OscProcess : MonoBehaviour
         // AJOUTER À LA LIGNE SUIVANTE LE CODE POUR APPLIQUER LA VARIABLE ajuste AU DÉPLACEMENT DE LA PALETTE ICI !
         // COMME INDICE C’EST QQCH COMME : palette.setVercialPosition( ajuste);
         PlayerPaddle.SetPosition(ajuste);
+
+            
 
     }
 
@@ -85,8 +89,11 @@ public class OscProcess : MonoBehaviour
         // Debug.Log("Reçu : " + message.Address + " " + valeur);
 
         // TRAITER LA VALEUR ICI !
-
+ if( valeur == 1){
+        gameManager.NewGame();
+    }
 
     }
 
 }
+
